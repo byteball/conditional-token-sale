@@ -1,0 +1,1 @@
+*/20 * * * * cd exchange; node check_daemon.js 1>>~/.config/exchange/check_daemon.log 2>>~/.config/exchange/check_daemon.err
