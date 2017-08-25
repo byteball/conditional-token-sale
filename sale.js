@@ -102,8 +102,9 @@ eventBus.on('text', (from_address, text) => {
 			if (amount % conf.assetToSellMultiple === 0) {
 				assocAmountByDeviceAddress[from_address] = amount;
 				return device.sendMessageToDevice(from_address, 'text',
-					'Price: ' + ((amount * conf.exchangeRate) / conf.assetToReceiveUnitValue) + ' ' + conf.assetToReceiveName +
-					'\nTo continue, send me your address (click ... and Insert my address).');
+					"Buying: " + (amount / conf.assetToReceiveUnitValue) + ' ' + conf.assetToSellName + '\n' +
+					"You'll pay: " + ((amount * conf.exchangeRate) / conf.assetToReceiveUnitValue) + ' ' + conf.assetToReceiveName + '\n' +
+					'To continue, send me your address (click ... and Insert my address).');
 			} else {
 				return device.sendMessageToDevice(from_address, 'text', 'The number is not a multiple of ' + (conf.assetToSellMultiple/conf.assetToSellUnitValue));
 			}
