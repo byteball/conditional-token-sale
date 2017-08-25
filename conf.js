@@ -12,7 +12,7 @@ exports.storage = 'sqlite';
 
 
 exports.hub = 'byteball.org/bb';
-exports.deviceName = 'Exchange';
+exports.deviceName = 'Buy blackbytes';
 exports.permanent_pairing_secret = '0000';
 exports.control_addresses = [];
 exports.payout_address = 'WHERE THE MONEY CAN BE SENT TO';
@@ -38,7 +38,7 @@ exports.assetToReceive = 'base';
 exports.assetToReceiveUnitValue = 1000000000; //GB
 exports.assetToReceiveName = 'GB';
 
-exports.exchangeRate = 0.5;
+exports.exchangeRate = 0.05;
 
 
 if(exports.assetToSell === 'base') exports.assetToSell = null;

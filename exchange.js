@@ -62,7 +62,7 @@ eventBus.on('new_my_transactions', (arrUnits) => {
 				if (row.amount !== row.peer_amount)
 					return device.sendMessageToDevice(row.peer_device_address, 'text', "Received wrong amount: expected " + row.peer_amount + ", received " + row.amount);
 				assocWaitingStableSharedAddressByUnits[row.unit] = row.shared_address;
-				device.sendMessageToDevice(row.peer_device_address, 'text', "I received your payment, wait for confirmation.");
+				device.sendMessageToDevice(row.peer_device_address, 'text', "Received your payment, waiting for confirmation.");
 			});
 		}
 	);
@@ -91,8 +91,9 @@ eventBus.on('text', (from_address, text) => {
 					notifications.notifyAdmin('offerContract error', JSON.stringify(err));
 					return device.sendMessageToDevice(from_address, 'text', texts.errorOfferContract());
 				}
+				let amount_in_user_units = assocAmountByDeviceAddress[from_address] / conf.assetToSellUnitValue;
 				delete assocAmountByDeviceAddress[from_address];
-				return device.sendMessageToDevice(from_address, 'text', 'This is your contract, please check and pay within 15 minutes: ' + paymentRequestText);
+				return device.sendMessageToDevice(from_address, 'text', 'This is your contract that holds '+amount_in_user_units+' '+conf.assetToSellName+', please check and pay within 15 minutes: ' + paymentRequestText);
 			});
 		});
 	} else if (/[\d.]+\b/.test(ucText)) {

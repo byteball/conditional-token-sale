@@ -1,8 +1,8 @@
 {
-  "name": "exchange",
+  "name": "conditional-token-sale",
   "version": "1.0.0",
-  "description": "",
-  "main": "exchange.js",
+  "description": "Token sale via conditional payment smart contract.",
+  "main": "sale.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

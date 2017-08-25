@@ -4,9 +4,9 @@ const desktopApp = require('byteballcore/desktop_app.js');
 const conf = require('byteballcore/conf');
 
 exports.help = () => {
-	return `I'm a bot of exchanging ${conf.assetToReceiveName} for ${conf.assetToSellName}\nPlease enter the amount of ${conf.assetToSellName}`
-		+ ((conf.assetToSellMultiple !== 1) ? ` multiple ${conf.assetToSellMultiple / conf.assetToSellUnitValue}` : '')
-		+ '\nExchange rate: ' + conf.exchangeRate;
+	return `Here you can buy ${conf.assetToSellName} for ${conf.assetToReceiveName}\nPlease enter the amount of ${conf.assetToSellName} you'd like to buy`
+		+ ((conf.assetToSellMultiple !== 1) ? ` (must be a multiple of ${conf.assetToSellMultiple / conf.assetToSellUnitValue})` : '')
+		+ '\nExchange rate: ' + conf.exchangeRate + ' ' + conf.assetToReceiveName + '/' + conf.assetToSellName;
 };
 
 exports.insertMyAddress = () => {
@@ -14,16 +14,16 @@ exports.insertMyAddress = () => {
 };
 
 exports.pleaseUnlock = () => {
-	return 'Please withdraw your funds from the exchange smart address.';
+	return 'Your payment is confirmed, now you can withdraw your funds from the smart address.';
 };
 
 exports.weSentPayment = () => {
-	return 'We sent you your ' + conf.assetToSellName + '.';
+	return 'Your payment is confirmed, we sent you your ' + conf.assetToSellName + '.';
 };
 
 //errors
 exports.errorInitSql = () => {
-	return 'please import exchange.sql file\n';
+	return 'please import sale.sql file\n';
 };
 
 exports.errorSmtp = () => {
