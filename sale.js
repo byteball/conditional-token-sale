@@ -123,7 +123,7 @@ function sendReport() {
 				"SELECT shared_address, creation_date, peer_amount/1e9 AS receive_amount, my_amount/1e9 AS sell_amount FROM contracts \n\
 				WHERE refunded=0  ORDER BY rowid",
 				rows => {
-					let arrNewContracts = rows.map(row => row.shared_address + ' - ' + row.creation_date + ' : ' + row.receive_amount + ' ' + conf.assetToReceiveName + ', ' + row.sell_amount + ' ' + conf.assetToSellName);
+					let arrNewContracts = rows.map(row => row.creation_date + ': ' + row.shared_address + ', ' + row.receive_amount + ' ' + conf.assetToReceiveName + ', ' + row.sell_amount + ' ' + conf.assetToSellName);
 					let body = 'Total: ' + balanceAssetToSell.total + ' ' + conf.assetToSellName + ', ' + balanceAssetToReceive.total + ' ' + conf.assetToReceiveName + '\n';
 					body += 'Free: ' + balanceAssetToSell.total_free + ' ' + conf.assetToSellName + ', ' + balanceAssetToReceive.total_free + ' ' + conf.assetToReceiveName + '\n';
 					body += 'Contracted: ' + balanceAssetToSell.total_shared + ' ' + conf.assetToSellName + ', ' + balanceAssetToReceive.total_shared + ' ' + conf.assetToReceiveName + '\n\n';
