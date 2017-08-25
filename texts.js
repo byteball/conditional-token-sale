@@ -4,9 +4,9 @@ const desktopApp = require('byteballcore/desktop_app.js');
 const conf = require('byteballcore/conf');
 
 exports.help = () => {
-	return `Here you can buy ${conf.assetToSellName} for ${conf.assetToReceiveName}\nPlease enter the amount of ${conf.assetToSellName} you'd like to buy`
-		+ ((conf.assetToSellMultiple !== 1) ? ` (must be a multiple of ${conf.assetToSellMultiple / conf.assetToSellUnitValue})` : '')
-		+ '\nExchange rate: ' + conf.exchangeRate + ' ' + conf.assetToReceiveName + '/' + conf.assetToSellName;
+	return `Here you can buy ${conf.assetToSellName} for ${conf.assetToReceiveName}.\nPlease enter the amount of ${conf.assetToSellName} you'd like to buy`
+		+ ((conf.assetToSellMultiple !== 1) ? ` (must be a multiple of ${conf.assetToSellMultiple / conf.assetToSellUnitValue}).` : '.')
+		+ '\nExchange rate: ' + conf.exchangeRate + ' ' + conf.assetToReceiveName + '/' + conf.assetToSellName + '.';
 };
 
 exports.insertMyAddress = () => {

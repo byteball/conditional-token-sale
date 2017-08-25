@@ -127,7 +127,7 @@ function sendReport() {
 					body += 'Free: ' + balanceAssetToSell.total_free + ' ' + conf.assetToSellName + ', ' + balanceAssetToReceive.total_free + ' ' + conf.assetToReceiveName + '\n';
 					body += 'Contracted: ' + balanceAssetToSell.total_shared + ' ' + conf.assetToSellName + ', ' + balanceAssetToReceive.total_shared + ' ' + conf.assetToReceiveName + '\n\n';
 					body += 'New contracts:\n' + arrNewContracts.join('\n');
-					notifications.notifyAdmin('Exchange report', body);
+					notifications.notifyAdmin('Sale report', body);
 				}
 			);
 		});
