@@ -26,7 +26,7 @@ exports.useSmtp = false;
 
 //contract
 exports.TIMESTAMPER_ADDRESS = 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT'; // isTestnet ? 'OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD' : 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT'
-exports.contractTimeout = 1; // hours
+exports.contractTimeout = 1; // hours: how long we are waiting for customer's payment
 
 //bot
 exports.assetToSell = constants.BLACKBYTES_ASSET;
