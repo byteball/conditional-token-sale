@@ -88,7 +88,7 @@ eventBus.on('text', (from_address, text) => {
 				timeout: conf.contractTimeout //hours
 			}, function (err, paymentRequestText) {
 				if (err) {
-					notifications.notifyAdmin('offerContract error', JSON.stringify(err));
+					notifications.notifyAdmin('offerContract error', err);
 					return device.sendMessageToDevice(from_address, 'text', texts.errorOfferContract());
 				}
 				let amount_in_user_units = assocAmountByDeviceAddress[from_address] / conf.assetToSellUnitValue;
