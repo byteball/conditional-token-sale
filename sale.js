@@ -121,7 +121,7 @@ function sendReport() {
 		getBalanceForAsset(conf.assetToReceive, (balanceAssetToReceive) => {
 			db.query(
 				"SELECT shared_address, creation_date, peer_amount/1e9 AS receive_amount, my_amount/1e9 AS sell_amount FROM contracts \n\
-				WHERE refunded=0  ORDER BY rowid",
+				WHERE refunded=0 AND creation_date>"+db.addTime('-1 DAYS')+" ORDER BY rowid",
 				rows => {
 					let arrNewContracts = rows.map(row => row.creation_date + ': ' + row.shared_address + ', ' + row.receive_amount + ' ' + conf.assetToReceiveName + ', ' + row.sell_amount + ' ' + conf.assetToSellName);
 					let body = 'Total: ' + balanceAssetToSell.total + ' ' + conf.assetToSellName + ', ' + balanceAssetToReceive.total + ' ' + conf.assetToReceiveName + '\n';
