@@ -79,7 +79,7 @@ eventBus.on('text', (from_address, text) => {
 	let ucText = text.toUpperCase().trim();
 
 	if (validationUtils.isValidAddress(ucText) && assocAmountByDeviceAddress[from_address]) {
-		headlessWallet.issueOrSelectNextMainAddress((myAddress) => {
+		headlessWallet.issueNextMainAddress((myAddress) => {
 			offerExchangeContract(myAddress, {
 				peerAddress: ucText,
 				peerDeviceAddress: from_address,
