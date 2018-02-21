@@ -1,1 +1,1 @@
-*/20 * * * * cd conditional-toten-sale; node check_daemon.js 1>>~/.config/conditional-toten-sale/check_daemon.log 2>>~/.config/conditional-toten-sale/check_daemon.err
+*/20 * * * * cd conditional-token-sale; node check_daemon.js 1>>~/.config/conditional-token-sale/check_daemon.log 2>>~/.config/conditional-token-sale/check_daemon.err
