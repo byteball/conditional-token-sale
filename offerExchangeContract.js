@@ -1,7 +1,7 @@
 /*jslint node: true */
 'use strict';
 const offerContract = require('./offerContractReversePayment');
-const db = require('byteballcore/db');
+const db = require('ocore/db');
 
 module.exports = (myAddress, contract, cb) => {
 	offerContract(myAddress, contract, (err, paymentRequestText, shared_address, timeout) => {

@@ -1,7 +1,7 @@
 /*jslint node: true */
 'use strict';
-const desktopApp = require('byteballcore/desktop_app.js');
-const conf = require('byteballcore/conf');
+const desktopApp = require('ocore/desktop_app.js');
+const conf = require('ocore/conf');
 
 exports.help = () => {
 	return `Here you can buy ${conf.assetToSellName} for ${conf.assetToReceiveName}.\nPlease enter the amount of ${conf.assetToSellName} you'd like to buy`

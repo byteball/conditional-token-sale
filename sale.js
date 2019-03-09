@@ -1,16 +1,16 @@
 /*jslint node: true */
 'use strict';
-const conf = require('byteballcore/conf');
-const db = require('byteballcore/db');
-const eventBus = require('byteballcore/event_bus');
-const headlessWallet = require('headless-byteball');
+const conf = require('ocore/conf');
+const db = require('ocore/db');
+const eventBus = require('ocore/event_bus');
+const headlessWallet = require('headless-obyte');
 const texts = require('./texts');
 const offerExchangeContract = require('./offerExchangeContract');
-const validationUtils = require('byteballcore/validation_utils');
+const validationUtils = require('ocore/validation_utils');
 const notifications = require('./notifications');
 const contract = require('./contract');
-const wallet = require('byteballcore/wallet');
-const storage = require('byteballcore/storage');
+const wallet = require('ocore/wallet');
+const storage = require('ocore/storage');
 
 let assocWaitingStableSharedAddressByUnits = {};
 let assocAmountByDeviceAddress = {};
@@ -18,7 +18,7 @@ let assocAmountByDeviceAddress = {};
 headlessWallet.setupChatEventHandlers();
 
 function payToPeer(contractRow) {
-	let device = require('byteballcore/device');
+	let device = require('ocore/device');
 	storage.readAsset(db, conf.assetToSell, null, (err, objAsset) => {
 		if (conf.assetToSell === null || objAsset.is_private) {
 			device.sendMessageToDevice(contractRow.peer_device_address, 'text', texts.pleaseUnlock());
@@ -49,7 +49,7 @@ eventBus.on('mci_became_stable', (mci) => {
 
 
 eventBus.on('new_my_transactions', (arrUnits) => {
-	let device = require('byteballcore/device.js');
+	let device = require('ocore/device.js');
 	db.query(
 		"SELECT unit, outputs.amount, peer_amount, outputs.asset AS received_asset, peer_device_address, shared_address \n\
 		FROM outputs JOIN contracts ON address=my_address \n\
@@ -70,12 +70,12 @@ eventBus.on('new_my_transactions', (arrUnits) => {
 
 
 eventBus.on('paired', (from_address) => {
-	let device = require('byteballcore/device.js');
+	let device = require('ocore/device.js');
 	device.sendMessageToDevice(from_address, 'text', texts.help());
 });
 
 eventBus.on('text', (from_address, text) => {
-	let device = require('byteballcore/device');
+	let device = require('ocore/device');
 	let ucText = text.toUpperCase().trim();
 
 	if (validationUtils.isValidAddress(ucText) && assocAmountByDeviceAddress[from_address]) {

@@ -1,7 +1,7 @@
 /*jslint node: true */
 "use strict";
 
-let constants = require('byteballcore/constants');
+let constants = require('ocore/constants');
 
 exports.port = null;
 //exports.myUrl = 'wss://mydomain.com/bb';
@@ -11,7 +11,7 @@ exports.bLight = false;
 exports.storage = 'sqlite';
 
 
-exports.hub = 'byteball.org/bb';
+exports.hub = 'obyte.org/bb';
 exports.deviceName = 'Buy blackbytes';
 exports.permanent_pairing_secret = '0000';
 exports.control_addresses = [];
