@@ -8,9 +8,17 @@ The exchange rate is fixed and set in the conf.
 
 ## Install
 
-Install node.js, clone the repository, then say
+Install node.js, clone the repository, then run:
 ```sh
 npm install
+node db_import.js
+```
+
+## Testnet
+
+Set testnet environment variable to 1, you can do it by copying the .env.testnet example file:
+```sh
+cp .env.testnet .env
 ```
 
 ## Run
