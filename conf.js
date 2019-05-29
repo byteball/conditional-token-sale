@@ -21,8 +21,17 @@ exports.bIgnoreUnpairRequests = true;
 exports.bSingleAddress = false;
 exports.KEYS_FILENAME = 'keys.json';
 
-//email
-exports.useSmtp = false;
+// email setup
+exports.admin_email = '';
+exports.from_email = '';
+
+// smtp https://github.com/byteball/ocore/blob/master/mail.js
+exports.smtpTransport = 'local'; // use 'local' for Unix Sendmail
+exports.smtpRelay = '';
+exports.smtpUser = '';
+exports.smtpPassword = '';
+exports.smtpSsl = null;
+exports.smtpPort = null;
 
 //contract
 exports.TIMESTAMPER_ADDRESS = process.env.testnet ? 'OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD' : 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT';
