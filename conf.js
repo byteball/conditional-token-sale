@@ -11,7 +11,7 @@ exports.bLight = false;
 exports.storage = 'sqlite';
 
 
-exports.hub = 'obyte.org/bb';
+exports.hub = process.env.testnet ? 'obyte.org/bb-test' : 'obyte.org/bb';
 exports.deviceName = 'Buy blackbytes';
 exports.permanent_pairing_secret = '0000';
 exports.control_addresses = [];
@@ -25,7 +25,7 @@ exports.KEYS_FILENAME = 'keys.json';
 exports.useSmtp = false;
 
 //contract
-exports.TIMESTAMPER_ADDRESS = 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT'; // isTestnet ? 'OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD' : 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT'
+exports.TIMESTAMPER_ADDRESS = process.env.testnet ? 'OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD' : 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT';
 exports.contractTimeout = 1; // hours: how long we are waiting for customer's payment
 
 //bot

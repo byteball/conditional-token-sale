@@ -17,5 +17,5 @@ CREATE TABLE contracts (
     FOREIGN KEY (my_address) REFERENCES my_addresses(address),
     FOREIGN KEY (peer_device_address) REFERENCES correspondent_devices(device_address)
 );
-
+-- query separator
 CREATE INDEX byCheckedTimeoutDate ON contracts(checked_timeout_date);
