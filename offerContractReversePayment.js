@@ -22,7 +22,7 @@ module.exports = (myAddress, contract, cb) => {
 	if (contract.peerAsset === null) contract.peerAsset = 'base';
 
 
-	let timeout = Date.now() + Math.round(contract.timeout * 3600 * 1000);
+	let timeout = Math.round(Date.now()/1000) + Math.round(contract.timeout * 3600);
 	let arrSeenCondition = ['seen', {
 		what: 'output',
 		address: myAddress,
