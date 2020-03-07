@@ -34,7 +34,6 @@ exports.smtpSsl = null;
 exports.smtpPort = null;
 
 //contract
-exports.TIMESTAMPER_ADDRESS = process.env.testnet ? 'OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD' : 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT';
 exports.contractTimeout = 1; // hours: how long we are waiting for customer's payment
 
 //bot

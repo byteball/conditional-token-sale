@@ -56,7 +56,7 @@ module.exports = (myAddress, contract, cb) => {
 			['and', [
 				['address', myAddress],
 				['not', arrSeenCondition],
-				['in data feed', [[conf.TIMESTAMPER_ADDRESS], 'timestamp', '>', timeout]]
+				['timestamp', ['>', timeout]]
 			]]
 		]];
 
