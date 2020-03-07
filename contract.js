@@ -20,7 +20,7 @@ exports.getMyAddressFromContract = getMyAddressFromContract;
 exports.checkAndRefundContractsTimeout = () => {
 	storage.readLastStableMcUnitProps(db, objUnitProps => {
 		const timestamp = objUnitProps.timestamp;
-		db.query("SELECT my_address, shared_address, my_amount, peer_amount FROM contracts WHERE timeout<?", [timestamp], rows => {
+		db.query("SELECT my_address, shared_address, my_amount, peer_amount FROM contracts WHERE timeout<? AND checked_timeout_date IS NULL", [timestamp], rows => {
 			if (!rows.length) return;
 			let arrAddressesAndAmountToRefund = [];
 			let arrFullyFundedAddresses = [];
