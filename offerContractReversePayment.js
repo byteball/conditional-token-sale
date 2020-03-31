@@ -111,7 +111,7 @@ module.exports = (myAddress, contract, cb) => {
 					};
 					let objPaymentRequest = {payments: arrPayments, definitions: assocDefinitions};
 					let paymentJson = JSON.stringify(objPaymentRequest);
-					let paymentJsonBase64 = Buffer(paymentJson).toString('base64');
+					let paymentJsonBase64 = Buffer.from(paymentJson).toString('base64');
 					let paymentRequestCode = 'payment:' + paymentJsonBase64;
 					let paymentRequestText = '[your share of payment to the contract](' + paymentRequestCode + ')';
 					cb(null, paymentRequestText, shared_address, timeout);
